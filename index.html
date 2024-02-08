@@ -196,11 +196,14 @@
         @keyframes snowfall {
             0% {
                 transform: translateY(-10px) rotate(0deg);
+                left: 0; /* Adjusted initial left position */
             }
             100% {
                 transform: translateY(100vh) rotate(360deg);
+                left: calc(100vw * 1.5); /* Adjusted final left position */
             }
         }
+
     </style>
 </head>
 <body>
