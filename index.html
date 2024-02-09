@@ -12,7 +12,7 @@
             padding: 20px;
             margin: 0;
             position: relative;
-            overflow: auto;
+            overflow: hidden; /* Changed from 'auto' to 'hidden' */
         }
 
         html, body {
@@ -165,10 +165,10 @@
             text-align: center;
             animation: slideUp 1s ease-in-out;
         }
-      
+
         .product-image {
-          width: 100%; /* Set width to 100% of the container */
-          height: auto; /* Automatically calculate height to maintain aspect ratio */
+            width: 100%; /* Set width to 100% of the container */
+            height: auto; /* Automatically calculate height to maintain aspect ratio */
         }
 
         @keyframes slideUp {
@@ -182,25 +182,25 @@
             }
         }
 
-         .snowflake {
-                  position: absolute;
-                  top: -10px;
-                  width: 5px; /* Set width to 5px */
-                  height: 5px; /* Set height to 5px */
-                  background-color: #fff;
-                  border-radius: 50%;
-                  animation: snowfall linear infinite;
-             }
+        /* Adjusted snowflake animation */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            width: 5px;
+            height: 5px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: snowfall linear infinite;
+        }
 
         @keyframes snowfall {
             0% {
-                transform: translateY(-10px) rotate(0deg);
+                transform: translateY(-10px) translateX(0);
             }
             100% {
-                transform: translateY(100vh) rotate(360deg);
+                transform: translateY(300vh) translateX(100px);
             }
         }
-
     </style>
 </head>
 <body>
@@ -252,7 +252,7 @@
         const currentMonth = currentDate.getMonth() + 1; // getMonth() returns zero-based month
         const snowflakeContainer = document.body;
         
-        if (currentMonth >= 12 && currentMonth <= 2) {
+        if (currentMonth >= 12 || currentMonth <= 2) { // Changed to '||' for correct winter months
             // Winter: Add snowflakes
             for (let i = 0; i < 50; i++) {
                 createSnowflake(snowflakeContainer);
