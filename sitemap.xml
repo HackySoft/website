@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<!--  created with sitemap generator https://octopus.do  -->
-
     <url>
-        <loc>https://hackysoft.xyz</loc>
+        <loc>https://hackysoft.xyz/</loc>
         <lastmod>2024-02-09</lastmod>
-        <changefreq>always</changefreq>
-        <priority>0.5</priority>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
     </url>
 </urlset>
