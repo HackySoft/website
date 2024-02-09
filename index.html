@@ -185,8 +185,8 @@
          .snowflake {
                   position: absolute;
                   top: -10px;
-                  width: Math.random() * 5 + 3 + 'px'; /* Random width between 3px and 8px */
-                  height: Math.random() * 5 + 3 + 'px'; /* Random height between 3px and 8px */
+                  width: 5px; /* Set width to 5px */
+                  height: 5px; /* Set height to 5px */
                   background-color: #fff;
                   border-radius: 50%;
                   animation: snowfall linear infinite;
@@ -255,35 +255,35 @@
         if (currentMonth >= 12 && currentMonth <= 2) {
             // Winter: Add snowflakes
             for (let i = 0; i < 50; i++) {
-                createSnowflake();
+                createSnowflake(snowflakeContainer);
             }
         } else if (currentMonth >= 3 && currentMonth <= 5) {
             // Spring: Add eggs or other appropriate animation
         }
         
         // Create snowflake element
-        function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.className = 'snowflake';
-    snowflake.style.left = Math.random() * window.innerWidth + 'px';
-    snowflake.style.animationDuration = (Math.random() * 2 + 2) + 's';
-    snowflakeContainer.appendChild(snowflake);
+        function createSnowflake(container) {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            container.appendChild(snowflake);
 
-    function removeSnowflake() {
-        if (parseInt(snowflake.style.top) > window.innerHeight) {
-            snowflake.remove();
-            clearInterval(interval);
-        }
-    }
+            function removeSnowflake() {
+                if (parseInt(snowflake.style.top) > window.innerHeight) {
+                    snowflake.remove();
+                    clearInterval(interval);
+                }
+            }
 
-    const interval = setInterval(removeSnowflake, 100);
+            const interval = setInterval(removeSnowflake, 100);
 
-    // Remove snowflake after animation completes
-    snowflake.addEventListener('animationiteration', () => {
-        snowflake.remove();
-        clearInterval(interval);
-        createSnowflake(); // Replace removed snowflake with a new one
-    });
+            // Remove snowflake after animation completes
+            snowflake.addEventListener('animationiteration', () => {
+                snowflake.remove();
+                clearInterval(interval);
+                createSnowflake(container); // Replace removed snowflake with a new one
+            });
         }
         
     });
