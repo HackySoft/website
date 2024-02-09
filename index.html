@@ -182,25 +182,6 @@
             }
         }
 
-        /* Adjusted snowflake animation */
-        .snowflake {
-            position: absolute;
-            top: -10px;
-            width: 5px;
-            height: 5px;
-            background-color: #fff;
-            border-radius: 50%;
-            animation: snowfall linear infinite;
-        }
-
-        @keyframes snowfall {
-            0% {
-                transform: translateY(-10px) translateX(0);
-            }
-            100% {
-                transform: translateY(300vh) translateX(100px);
-            }
-        }
     </style>
 </head>
 <body>
@@ -214,6 +195,7 @@
         </ul>
     </nav>
 </header>
+
 <section id="products" class="page-content">
     <h2>Our Products</h2>
     <div class="product hover-animation">
@@ -232,7 +214,6 @@
     </div>
 </section>
 
-
 <section id="about" class="page-content">
     <h2>About Us</h2>
     <p>Welcome to HackySoft, your one-stop destination for high-quality software solutions. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in purus fermentum, bibendum neque vel, aliquam neque.</p>
@@ -241,53 +222,12 @@
     </div>
 </section>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9519674975249776"
+     crossorigin="anonymous"></script>
+
 <footer>
     <p>&copy; 2024 Hack&Soft. All rights reserved.</p>
 </footer>
-
-<script>
-    // Check current season and add appropriate animation
-    window.addEventListener('DOMContentLoaded', (event) => {
-        const currentDate = new Date();
-        const currentMonth = currentDate.getMonth() + 1; // getMonth() returns zero-based month
-        const snowflakeContainer = document.body;
-        
-        if (currentMonth >= 12 || currentMonth <= 2) { // Changed to '||' for correct winter months
-            // Winter: Add snowflakes
-            for (let i = 0; i < 50; i++) {
-                createSnowflake(snowflakeContainer);
-            }
-        } else if (currentMonth >= 3 && currentMonth <= 5) {
-            // Spring: Add eggs or other appropriate animation
-        }
-        
-        // Create snowflake element
-        function createSnowflake(container) {
-            const snowflake = document.createElement('div');
-            snowflake.className = 'snowflake';
-            snowflake.style.left = Math.random() * window.innerWidth + 'px';
-            snowflake.style.animationDuration = (Math.random() * 2 + 2) + 's';
-            container.appendChild(snowflake);
-
-            function removeSnowflake() {
-                if (parseInt(snowflake.style.top) > window.innerHeight) {
-                    snowflake.remove();
-                    clearInterval(interval);
-                }
-            }
-
-            const interval = setInterval(removeSnowflake, 100);
-
-            // Remove snowflake after animation completes
-            snowflake.addEventListener('animationiteration', () => {
-                snowflake.remove();
-                clearInterval(interval);
-                createSnowflake(container); // Replace removed snowflake with a new one
-            });
-        }
-        
-    });
-</script>
 
 </body>
 </html>
