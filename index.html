@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.sellix.io/static/css/embed.css" rel="stylesheet"/>
     <title>HackySoft</title>
     <style>
         body {
@@ -13,7 +12,7 @@
             padding: 20px;
             margin: 0;
             position: relative;
-            overflow: hidden;
+            overflow: hidden; /* Changed from 'auto' to 'hidden' */
         }
 
         html, body {
@@ -133,7 +132,7 @@
 
         .buy-button:hover {
             background-color: #e65c00;
-            transform: scale(1.1);
+            transform: scale(1.1); /* Added hover animation */
         }
 
         .video-container {
@@ -161,14 +160,15 @@
             transform: scale(1.05);
         }
 
+        /* Additional Animations */
         footer {
             text-align: center;
             animation: slideUp 1s ease-in-out;
         }
 
         .product-image {
-            width: 100%;
-            height: auto;
+            width: 100%; /* Set width to 100% of the container */
+            height: auto; /* Automatically calculate height to maintain aspect ratio */
         }
 
         @keyframes slideUp {
@@ -203,16 +203,14 @@
         <h3>🔥 Lava Raider</h3>
         <p>Control all your discord tokens at once.</p>
         <p>Price: $7.99</p>
-        <!-- Added data-sellix-product attribute -->
-        <button class="buy-button" data-sellix-product="65c5369a24e29">Buy Now</button>
+        <a href="https://hackosoft.mysellix.io/ru/product/lava-raider" class="buy-button">Buy Now</a>
     </div>
     <div class="product hover-animation">
         <img src="https://hack-0-soft.github.io/demo-repository/product2.png" class="product-image">
         <h3>🧾 Token Farmer</h3>
         <p>Mass create discord tokens.</p>
         <p>Price: $14.99</p>
-        <!-- Added data-sellix-product attribute -->
-        <button class="buy-button" data-sellix-product="658e893cb19ad">Buy Now</button>
+        <a href="https://hackosoft.mysellix.io/ru/product/discord-tokenfarmer" class="buy-button">Buy Now</a>
     </div>
 </section>
 
@@ -224,7 +222,8 @@
     </div>
 </section>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9519674975249776" crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9519674975249776"
+     crossorigin="anonymous"></script>
 
 <footer>
     <p>&copy; 2024 Hack&Soft. All rights reserved.</p>
