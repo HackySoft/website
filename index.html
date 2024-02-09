@@ -182,16 +182,15 @@
             }
         }
 
-         /* Snowflakes Animation */
-        .snowflake {
-            position: absolute;
-            top: -10px;
-            width: 5px;
-            height: 5px;
-            background-color: #fff;
-            border-radius: 50%;
-            animation: snowfall linear infinite;
-        }
+         .snowflake {
+                  position: absolute;
+                  top: -10px;
+                  width: Math.random() * 5 + 3 + 'px'; /* Random width between 3px and 8px */
+                  height: Math.random() * 5 + 3 + 'px'; /* Random height between 3px and 8px */
+                  background-color: #fff;
+                  border-radius: 50%;
+                  animation: snowfall linear infinite;
+             }
 
         @keyframes snowfall {
             0% {
@@ -253,7 +252,7 @@
         const currentMonth = currentDate.getMonth() + 1; // getMonth() returns zero-based month
         const snowflakeContainer = document.body;
         
-        if (currentMonth >= 1 && currentMonth <= 2) {
+        if (currentMonth >= 12 && currentMonth <= 2) {
             // Winter: Add snowflakes
             for (let i = 0; i < 50; i++) {
                 createSnowflake();
@@ -262,20 +261,31 @@
             // Spring: Add eggs or other appropriate animation
         }
         
-        // Create snowflake elements
+        // Create snowflake element
         function createSnowflake() {
-            const snowflake = document.createElement('div');
-            snowflake.className = 'snowflake';
-            snowflake.style.left = Math.random() * window.innerWidth + 'px';
-            snowflake.style.animationDuration = (Math.random() * 2 + 2) + 's';
-            snowflakeContainer.appendChild(snowflake);
-            
-            // Remove snowflake after animation completes
-            snowflake.addEventListener('animationiteration', () => {
-                snowflake.remove();
-                createSnowflake(); // Replace removed snowflake with a new one
-            });
+    const snowflake = document.createElement('div');
+    snowflake.className = 'snowflake';
+    snowflake.style.left = Math.random() * window.innerWidth + 'px';
+    snowflake.style.animationDuration = (Math.random() * 2 + 2) + 's';
+    snowflakeContainer.appendChild(snowflake);
+
+    function removeSnowflake() {
+        if (parseInt(snowflake.style.top) > window.innerHeight) {
+            snowflake.remove();
+            clearInterval(interval);
         }
+    }
+
+    const interval = setInterval(removeSnowflake, 100);
+
+    // Remove snowflake after animation completes
+    snowflake.addEventListener('animationiteration', () => {
+        snowflake.remove();
+        clearInterval(interval);
+        createSnowflake(); // Replace removed snowflake with a new one
+    });
+        }
+        
     });
 </script>
 
