@@ -268,20 +268,17 @@
   Please let me earn a cent 😔.
 </div>
 
-<div 
-     class="ad-zone ad-space ad-unit textads banner-ads banner_ads"> 
-</div> 
+<div class="ad-zone ad-space ad-unit textads banner-ads banner_ads"></div>
 
 <script>
-    let x = document.querySelector(".ad-zone"); 
-        let x_height = x.offsetHeight; 
-         
-        if(x_height){ 
-            /* alert("No Adblocker detected") */
-        } else{ 
-            alert("Adblocker detected")
+    document.addEventListener("DOMContentLoaded", function() {
+        // Check if the ad zone exists
+        let adZone = document.querySelector(".ad-zone");
+        if (!adZone) {
+            alert("Adblocker detected");
             document.getElementById('JwQUnsAKoVrf').style.display = 'block';
-    }
+        }
+    });
 </script>
 
 <!-- Google tag (gtag.js) -->
