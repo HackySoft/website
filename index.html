@@ -318,13 +318,36 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Check if the ad zone exists
-        let adZone = document.querySelector("left-banner");
-        if (!adZone) {
-            alert("Adblocker detected!!!");
-            document.getElementById('JwQUnsAKoVrf').style.display = 'block';
-        }
+        setTimeout(function() {
+            // Check if either left-banner or right-banner have display: none
+            let leftBanner = document.querySelector(".left-banner");
+            let rightBanner = document.querySelector(".right-banner");
+            if ((!leftBanner || window.getComputedStyle(leftBanner).getPropertyValue('display') === 'none') || 
+                (!rightBanner || window.getComputedStyle(rightBanner).getPropertyValue('display') === 'none')) {
+                document.getElementById('JwQUnsAKoVrf').style.display = 'block';
+
+                // Scroll to the top
+                scrollToTop();
+                // Disable scrolling, clicking, and selecting
+                disableInteraction();
+            }
+
+        }, 3000); // setTimeout takes a function as its first argument and then the delay in milliseconds as the second argument
     });
+
+    function scrollToTop() {
+        document.documentElement.scrollTop = 0;
+    }
+
+    function disableInteraction() {
+        // Disable scrolling
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+        // Disable clicking
+        document.body.style.pointerEvents = 'none';
+        // Disable selecting
+        document.body.style.userSelect = 'none';
+    }
 </script>
 
 <center>
