@@ -268,35 +268,21 @@
   Please let me earn a cent 😔.
 </div>
 
-<script src="./adblockDetector.js"></script>
-    <script>
-    // Configure the adblock detector
-    (function(){
-        var enabledEl = document.getElementById('JwQUnsAKoVrf')
-        function adBlockDetected() {
-            enabledEl.style.display = 'block';
-        }
-        function adBlockNotDetected() {
-            enabledEl.style.display = 'none';
-        }
-        
-        if(typeof window.adblockDetector === 'undefined') {
-            adBlockDetected();
-        } else {
-            window.adblockDetector.init(
-                {
-                    debug: true,
-                    found: function(){
-                        adBlockDetected();
-                    },
-                    notFound: function(){
-                        adBlockNotDetected();
-                    }
-                }
-            );
-        }
-    }());
-    </script>
+<div 
+     class="ad-zone ad-space ad-unit textads banner-ads banner_ads"> 
+</div> 
+
+<script>
+    let x = document.querySelector(".ad-zone"); 
+        let x_height = x.offsetHeight; 
+         
+        if(x_height){ 
+            /* alert("No Adblocker detected") */
+        } else{ 
+            alert("Adblocker detected")
+            document.getElementById('JwQUnsAKoVrf').style.display = 'block';
+    }
+</script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDX7F2C1Z0"></script>
