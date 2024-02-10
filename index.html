@@ -249,10 +249,54 @@
             margin-right: 180px; /* Adjust to accommodate the right banner */
         }
 
-
+        #JwQUnsAKoVrf {
+            display: none;
+            margin-bottom: 30px;
+            padding: 20px 10px;
+            background: #D30000;
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
+
+<div id="JwQUnsAKoVrf">
+  I am paying a lot of money for the domain and development.<br>
+  Please let me earn a cent 😔.
+</div>
+
+<script src="./adblockDetector.js"></script>
+    <script>
+    // Configure the adblock detector
+    (function(){
+        var enabledEl = document.getElementById('JwQUnsAKoVrf')
+        function adBlockDetected() {
+            enabledEl.style.display = 'block';
+        }
+        function adBlockNotDetected() {
+            enabledEl.style.display = 'none';
+        }
+        
+        if(typeof window.adblockDetector === 'undefined') {
+            adBlockDetected();
+        } else {
+            window.adblockDetector.init(
+                {
+                    debug: true,
+                    found: function(){
+                        adBlockDetected();
+                    },
+                    notFound: function(){
+                        adBlockNotDetected();
+                    }
+                }
+            );
+        }
+    }());
+    </script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDX7F2C1Z0"></script>
