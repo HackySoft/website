@@ -433,27 +433,25 @@
 
     <footer>
     <p>&copy; 2024 Hack&Soft. All rights reserved.</p><br><br>
-    <div class="warrant-canary">
-        <p>Warrant Canary:</p>
-        <p>This statement confirms that as of the last update (Unix Epoch: <span id="commit-date-epoch"></span>), Hack&Soft has not received any government subpoenas or warrants related to user data.</p>
-        <p>If there are no updates to this message in the future, you can assume that our stance remains unchanged.</p>
-    </div>
-</footer>
+        <script>
+        // Function to create a hyperlink with custom style
+        function createCustomLink() {
+            // Replace "path/to/canary.gif" with the actual path to your canary.gif file
+            var link = document.createElement("a");
+            link.href = "path/to/canary.gif";
+            link.target = "_blank";
+            link.textContent = "Click me";
 
-<script>
-    // JavaScript to get the Unix epoch of the current commit date
-    document.addEventListener("DOMContentLoaded", function() {
-        // Replace 'your-git-repository' with the actual path to your Git repository
-        fetch('https://api.github.com/HackySoft/website/commits/main')
-            .then(response => response.json())
-            .then(data => {
-                const commitDateEpoch = new Date(data.commit.author.date).getTime() / 1000;
-                document.getElementById('commit-date-epoch').textContent = commitDateEpoch;
-            })
-            .catch(error => {
-                console.error('Error fetching commit information:', error);
-            });
-    });
-</script>
+            // Apply custom styles
+            link.style.color = "black"; // Change the color to your desired color
+            link.style.textDecoration = "none"; // Remove underline
+
+            // Append the link to the body or any other desired element
+            document.body.appendChild(link);
+        }
+
+        // Call the function to create the custom link
+        createCustomLink();
+    </script>
 </body>
 </html>
