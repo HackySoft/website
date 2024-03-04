@@ -259,6 +259,18 @@
             color: #fff;
             border-radius: 5px;
         }
+
+        @media screen and (max-width: 600px) {
+            .left-banner,
+            .right-banner {
+                display: none;
+            }
+
+            #products {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -319,16 +331,6 @@
 <script>
     console.log(window.innerWidth);
     document.addEventListener("DOMContentLoaded", function() {
-        if (window.innerWidth <= 600) {
-            var adContainer = document.querySelector(".left-banner");
-            var adContainer2 = document.querySelector(".right-banner");
-            var adContainer3 = document.querySelector('.bottom-banner');
-            if (adContainer || adContainer2 || adContainer3) {
-                adContainer.parentNode.removeChild(adContainer);
-                adContainer.parentNode.removeChild(adContainer2);
-                adContainer.parentNode.removeChild(adContainer3);
-            }
-        }
         setTimeout(function() {
             // Check if either left-banner or right-banner have display: none
             let leftBanner = document.querySelector(".left-banner");
