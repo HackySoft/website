@@ -331,10 +331,10 @@
 <script>
     console.log(window.innerWidth);
     document.addEventListener("DOMContentLoaded", function() {
-        if window.innerWidth <= 600 {
+        if (window.innerWidth <= 600) {
             var adContainer = document.querySelector(".left-banner");
             var adContainer2 = document.querySelector(".right-banner");
-            var adContainer3 = document.getElementById('.bottom-banner');
+            var adContainer3 = document.querySelector('.bottom-banner');
             if (adContainer || adContainer2 || adContainer3) {
                 adContainer.parentNode.removeChild(adContainer);
                 adContainer.parentNode.removeChild(adContainer2);
@@ -377,13 +377,14 @@
         fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9519674975249776')
         .then(response => {
             if (!response.ok) {
-                return true
+                return true;
             } else {
-                return false
+                return false;
             }
         })
     }
 </script>
+
 
 <center>
     <section id="products" class="page-content">
