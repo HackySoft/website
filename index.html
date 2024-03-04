@@ -335,7 +335,7 @@
             // Check if either left-banner or right-banner have display: none
             let leftBanner = document.querySelector(".left-banner");
             let rightBanner = document.querySelector(".right-banner");
-            if (!leftBanner || window.getComputedStyle(leftBanner).getPropertyValue('display') === 'none' || !rightBanner || window.getComputedStyle(rightBanner).getPropertyValue('display') === 'none' || verifyAdblocker() && window.innerWidth > 600) {
+            if (!leftBanner || window.getComputedStyle(leftBanner).getPropertyValue('display') === 'none' || !rightBanner || window.getComputedStyle(rightBanner).getPropertyValue('display') === 'none' && window.innerWidth > 600) {
                 document.getElementById('JwQUnsAKoVrf').style.display = 'block';
 
                 // Scroll to the top
@@ -360,18 +360,6 @@
         document.body.style.pointerEvents = 'none';
         // Disable selecting
         document.body.style.userSelect = 'none';
-    }
-
-    function verifyAdblocker() {
-        // Ping the Google Ads URL
-        fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9519674975249776')
-        .then(response => {
-            if (!response.ok) {
-                return true;
-            } else {
-                return false;
-            }
-        })
     }
 </script>
 
