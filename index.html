@@ -185,16 +185,16 @@
         }
 
         .coupon_code {
-            bottom: 0vh;
+            bottom: 0;
             background-color: black;
             color: white;
             padding: 10px;
             margin: 0;
-            position: fixed;
+            position: absolute; /* Change from fixed to absolute */
             z-index: 999;
             animation: slideUp 1s ease-in-out;
-            left: 0px;
-            right: 0px;
+            left: 0;
+            right: 0;
             width: 100%;
             text-align: center;
             animation: colorChange 5s infinite alternate; /* Added color animation */
