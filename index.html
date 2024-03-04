@@ -259,6 +259,18 @@
             color: #fff;
             border-radius: 5px;
         }
+
+        @media screen and (max-width: 600px) {
+            .left-banner {
+                display: none;
+            }
+            .right-banner {
+                display: none;
+            }
+            .bottom-banner {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -323,13 +335,15 @@
             let leftBanner = document.querySelector(".left-banner");
             let rightBanner = document.querySelector(".right-banner");
             if ((!leftBanner || window.getComputedStyle(leftBanner).getPropertyValue('display') === 'none') || 
-                (!rightBanner || window.getComputedStyle(rightBanner).getPropertyValue('display') === 'none')) {
+                (!rightBanner || window.getComputedStyle(rightBanner).getPropertyValue('display') === 'none') || window.innerWidth <= 600;) {
                 document.getElementById('JwQUnsAKoVrf').style.display = 'block';
 
                 // Scroll to the top
                 scrollToTop();
                 // Disable scrolling, clicking, and selecting
                 disableInteraction();
+                // Scroll to the top again
+                scrollToTop();
             }
 
             // Verify adblocker using second method
@@ -363,6 +377,8 @@
                 scrollToTop();
                 // Disable scrolling, clicking, and selecting
                 disableInteraction();
+                // Scroll to the top again
+                scrollToTop();
             }
         })
         .catch(error => {
@@ -373,6 +389,8 @@
             scrollToTop();
             // Disable scrolling, clicking, and selecting
             disableInteraction();
+            // Scroll to the top again
+            scrollToTop();
         });
     }
 </script>
