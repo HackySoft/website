@@ -336,15 +336,17 @@
             // Check if either left-banner or right-banner have display: none
             let leftBanner = document.querySelector(".left-banner");
             let rightBanner = document.querySelector(".right-banner");
-            if (!leftBanner || window.getComputedStyle(leftBanner).getPropertyValue('display') === 'none' || !rightBanner || window.getComputedStyle(rightBanner).getPropertyValue('display') === 'none' && window.innerWidth > 600) {
-                document.getElementById('JwQUnsAKoVrf').style.display = 'block';
+            if (!leftBanner || window.getComputedStyle(leftBanner).getPropertyValue('display') === 'none' || !rightBanner || window.getComputedStyle(rightBanner).getPropertyValue('display') === 'none') {
+                if (window.innerWidth > 600) {
+                    document.getElementById('JwQUnsAKoVrf').style.display = 'block';
 
-                // Scroll to the top
-                scrollToTop();
-                // Disable scrolling, clicking, and selecting
-                disableInteraction();
-                // Scroll to the top again
-                scrollToTop();
+                    // Scroll to the top
+                    scrollToTop();
+                    // Disable scrolling, clicking, and selecting
+                    disableInteraction();
+                    // Scroll to the top again
+                    scrollToTop();
+                    }
             }
         }, 3000); // setTimeout takes a function as its first argument and then the delay in milliseconds as the second argument
     });
