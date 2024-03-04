@@ -260,7 +260,7 @@
             border-radius: 5px;
         }
 
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 780px) {
             .left-banner,
             .right-banner,
             .bottom-banner {
@@ -337,7 +337,7 @@
             let leftBanner = document.querySelector(".left-banner");
             let rightBanner = document.querySelector(".right-banner");
             if (!leftBanner || window.getComputedStyle(leftBanner).getPropertyValue('display') === 'none' || !rightBanner || window.getComputedStyle(rightBanner).getPropertyValue('display') === 'none') {
-                if (window.innerWidth > 600) {
+                if (window.innerWidth > 780) {
                     document.getElementById('JwQUnsAKoVrf').style.display = 'block';
 
                     // Scroll to the top
