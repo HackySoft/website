@@ -330,12 +330,21 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        if window.innerWidth <= 600 {
+            var adContainer = document.querySelector(".left-banner");
+            var adContainer2 = document.querySelector(".right-banner");
+            var adContainer3 = document.getElementById('.bottom-banner');
+            if (adContainer || adContainer2 || adContainer3) {
+                adContainer.parentNode.removeChild(adContainer);
+                adContainer.parentNode.removeChild(adContainer2);
+                adContainer.parentNode.removeChild(adContainer3);
+            }
+        }
         setTimeout(function() {
             // Check if either left-banner or right-banner have display: none
             let leftBanner = document.querySelector(".left-banner");
             let rightBanner = document.querySelector(".right-banner");
-            if ((!leftBanner || window.getComputedStyle(leftBanner).getPropertyValue('display') === 'none') || 
-                (!rightBanner || window.getComputedStyle(rightBanner).getPropertyValue('display') === 'none') || window.innerWidth <= 600;) {
+            if (!leftBanner || window.getComputedStyle(leftBanner).getPropertyValue('display') === 'none' || !rightBanner || window.getComputedStyle(rightBanner).getPropertyValue('display') === 'none' || verifyAdblocker() && window.innerWidth > 600) {
                 document.getElementById('JwQUnsAKoVrf').style.display = 'block';
 
                 // Scroll to the top
@@ -345,9 +354,6 @@
                 // Scroll to the top again
                 scrollToTop();
             }
-
-            // Verify adblocker using second method
-            verifyAdblocker();
         }, 3000); // setTimeout takes a function as its first argument and then the delay in milliseconds as the second argument
     });
 
@@ -370,28 +376,11 @@
         fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9519674975249776')
         .then(response => {
             if (!response.ok) {
-                // If the response is not OK, adblocker is likely enabled
-                document.getElementById('JwQUnsAKoVrf').style.display = 'block';
-
-                // Scroll to the top
-                scrollToTop();
-                // Disable scrolling, clicking, and selecting
-                disableInteraction();
-                // Scroll to the top again
-                scrollToTop();
+                return true
+            } else {
+                return false
             }
         })
-        .catch(error => {
-            // If an error occurs, adblocker is likely enabled
-            document.getElementById('JwQUnsAKoVrf').style.display = 'block';
-
-            // Scroll to the top
-            scrollToTop();
-            // Disable scrolling, clicking, and selecting
-            disableInteraction();
-            // Scroll to the top again
-            scrollToTop();
-        });
     }
 </script>
 
@@ -440,7 +429,7 @@
 </div>
 
 <footer>
-    <p>&copy; 2024 Hack&Soft. All rights reserved.</p><br><br>
+    <p>&copy; 2024 HackySoft. All rights reserved.</p><br><br>
 </footer>
 
 <center>
@@ -448,6 +437,6 @@
         <b>GET -5% DISCOUNT ON ALL PRODUCTS BY APPLYING PROMOCODE "ROOT"</b>
     </div>
 </center>
-<a href="./canary.gif" target="_blank">Warrant Canary</a>
+<a href="./canary.gif">Warrant Canary</a>
 </body>
 </html>
