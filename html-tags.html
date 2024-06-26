@@ -2,11 +2,32 @@
 <html>
 <head>
 <style>
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
 div {
-	height: 200px;
-	width: 200px;
-	border: 1px solid #333;
-	transition: all 0.4s ease;
+    height: 200px;
+    width: 200px;
+    border: 1px solid #333;
+    transition: all 0.4s ease;
+}
+
+input {
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid #333;
+    padding: 0 10px;
+    box-sizing: border-box;
+    transition: all 0.4s ease;
+    margin-top: 20px;
 }
 </style>
 </head>
@@ -16,8 +37,8 @@ div {
 <script>
 let box = document.querySelector("div"), input = document.querySelector("input");
 input.addEventListener("input", () => {
-	box.style.borderRadius = input.value;
-	box.style.background = input.value;
+    box.style.borderRadius = input.value;
+    box.style.background = input.value;
 });
 </script>
 </body>
